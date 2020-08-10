@@ -1,0 +1,372 @@
+\part{Integral Definida} % (fold)
+\label{prt:integral_ _definida_}
+	\chapter{Sumas de Riemann} % (fold)
+	\label{cha:sumas_de_riemann}
+		\section{Sumas superiores e inferiores} % (fold)
+		\label{sec:sumas_superiores_e_inferiores}
+			\begin{ejer}[1]
+			Estimar el área de la región $R$ bajo la función continua $f$ definida en el intervalo $I=[A,B]$.
+			\begin{equation}
+				f(x) = 1 + \frac{7}{2} x - 2 x^2
+			\end{equation}
+			%ec_f
+			Vamos a estimar el área de $R$ mediante rectángulos cuyas bases subdividen el segmento $ I = [0,2] $ en cuatro partes iguales, entonces cada una tendrá longitud 0.5. \\ 
+			La altura de cada sub-rectángulo será el valor máximo que asume la función $f$, en dicho sub-intervalo. \\
+			El intervalo completo es la unión de los cuatro sub-intervalos, es decir: $ I = I_1 \cup I_2 \cup I_3 \cup I4 $. Donde cada sub-intervalo tiene la misma longitud o medida $\mu$.
+			\begin{eqnarray*}
+				I_1 = \Big[0,\frac{1}{2}\Big]; \ \mu(I_1) = \frac{1}{2} \\
+				I_2 = \Big[\frac{1}{2}, 1\Big]; \ \mu(I_2) = \frac{1}{2} \\
+				I_3 = \Big[1,\frac{3}{2}\Big]; \ \mu(I_3) = \frac{1}{2} \\
+				I_4 = \Big[\frac{3}{2}, 2\Big]; \ \mu(I_4) = \frac{1}{2}
+			\end{eqnarray*}
+			% eqn_contenido
+			Los máximos $M_i$ en cada sub-intervalo $I_i$, se encuentran en alguno de los extremos del sib-intervalo, excepto en aquel donde la función alcanza su máximo global y dependen de  donde la función es creciente o decreciente. \\
+			De manera que para saber en donde tenemos que evaluar el máximo de la función podemos trazar su gráfica, ver figura \ref{graficaf}. \\
+			\begin{figure}[h]\label{graficaf}
+				\includegraphics{integralDef_Ex01.png}
+				\caption{La función $f$ definida en el intervalo cerrado $[A,B]$}
+			\end{figure}
+			% fig_f
+			En la figura podemos observar que el máximo global de la función lo alcanza en el segundo subintervalo, es decir, entre 1/2 y 1. Sin embargo, no sabemos exactamente en que punto, por lo que podemos usar el criterio de la primera derivada para conocerlo. \\ 
+			Derivamos la función y la igualamos a cero. 
+			\begin{eqnarray*}
+				f'(x) &=& \frac{7}{2} - 2 x = 0 \\ 
+					x = \frac{7}{8} 
+			\end{eqnarray*}
+			% fig_f_prima
+			Entonces, el máximo global de la función es: $f(\frac{7}{8}) = 1 + \frac{7}{2}(\frac{7}{8}) - 2 (\frac{7}{8})^2 = \frac{81}{32} = 2\frac{17}{32} \approx 2.5 $
+			De manera que a la izquierda del punto $(\frac{7}{8}, \frac{81}{32})$ la función es creciente, mientras que, del lado derecho del punto, la función es decreciente. \\ Entonces, para evaluar el máximo donde la función es creciente tomarémos el extremo derecho del intervalo y para la parte donde la función es decreciente tomarémos el extremo izquierdo de cada sub-intervalo., ver figura 1.2. \\
+			\begin{figure}[h]\label{sumasSup}
+				\includegraphics{integralDef_Ex01_SumSup.png}
+				\caption{Sumas superiores de la función $f$ definida en el intervalo cerrado $[a,b] = [0,2]$}
+			\end{figure}
+			 % fig_f_sumSup
+			Para el primer sub-intervalo la función es creciente, por lo que alcanza su máximo $M_1$ en el extremo derecho del intervalo, es decir, en $x=\frac{1}{2}$, entonces:
+			\begin{eqnarray*}
+				M_1 &=& f\Big(\frac{1}{2}\Big) \\
+				&=& 1 + \frac{7}{2}\Big(\frac{1}{2}\Big) - 2\Big(\frac{1}{2}\Big)^2 \\ 
+				&=& 1 + \frac{5}{4} \\ 
+				&=& \frac{9}{4}
+			\end{eqnarray*}
+			% eqn_M1
+			Para el segundo sub-intervalo ya sabemos que el máximo vale $M_2 = f(\frac{7}{8}) = \frac{81}{32}$.\\ Para el tercer intervalo donde la función es decreciente, tenemos que alcanza su máximo $M_3$, en el extremo izquierdo del intervalo $I_3$, es decir, en $x = 1$, entonces: 
+			\begin{eqnarray*}
+				M_3 &=& f(1) \\ 
+				&=& 1 + \frac{7}{2}(1) - 2(1)^2 \\ 
+				&=& 1 + \frac{7}{2} - 2 \\
+				&=& \frac{5}{2}
+			\end{eqnarray*}
+			% eqn_M3
+			Para el cuarto intervalo donde la función es decreciente, alcanza su máximo $M_4$ en $x = \frac{3}{2}$, entonces: 
+			\begin{eqnarray*}
+				M_4 &=& f(\frac{3}{2}) \\
+				&=& 1 + \frac{7}{2}(\frac{3}{2}) - 2(\frac{3}{2})^2 \\ 
+				&=& 1 + \frac{21}{4} - \frac{18}{4} \\
+				&=& \frac{7}{4}
+			\end{eqnarray*}
+			% eqn_M4
+			Luego, vamos a construir la suma superior para estos cuatro intervalos. 
+			\begin{eqnarray*}
+				A(R) \approx \Sigma_{i=1}^4 \mu_i (I_i) * M_i \\ 
+				\approx \frac{1}{2}*\frac{9}{4} + \frac{1}{2}*\frac{81}{32} + \frac{1}{2}*\frac{5}{2} + \frac{1}{2}*\frac{7}{4} \\ 
+				\approx \frac{289}{64} = 4.5156
+			\end{eqnarray*}
+			% eqn_sumaSup
+			Por lo tanto, el valor aproximado para la suma superior con una partición de cuatro intervalos es: $ A(R) \approx 4.5156 $.
+			%%%%%%%%%%%%%%end sumaSup%%%%%%%%%%%%%%%%%%%%%%
+			Ahora vamos a construir las sumas inferiores usando la misma partición de 4 pedazos, solo que esta vez vamos a tomar el extremo contrario de cada sub-intervalo y el valor del mínimo en el sub-intervalo que contiene al máximo global de la función. \\
+			\begin{figure}[h]
+				\includegraphics{integralDef_Ex01_SumInf.png}
+				\caption{Sumas superiores de la función $f$ definida en el intervalo cerrado $[a,b] = [0,2]$}
+			\end{figure}
+			% fig_f_sumInf
+			Para el primer sub-intervalo donde $f$ es creciente, tenemos el mínimo $m_1$ de la función, en $x = 0$, entonces:
+			\begin{eqnarray*}
+				m_1 &=& f\Big(0 \Big) \\
+				&=& 1 + \frac{7}{2}\Big(0 \Big) - 2\Big(0 \Big)^2 \\ 
+				&=& 1 
+			\end{eqnarray*}
+			% eqn_m1
+			Para el segundo sub-intervalo, el mínimo $m_2$ de la función se encuentra en $x = \frac{1}{2}$, tenemos:
+			\begin{eqnarray*}
+				m_2 &=& f\Big(\frac{1}{2} \Big) \\
+				&=& 1 + \frac{7}{2}\Big(\frac{1}{2} \Big) - 2\Big(\frac{1}{2} \Big)^2 \\ 
+				&=& \frac{9}{4} 
+			\end{eqnarray*}
+			% eqn_m2
+			Para el tercer intervalo donde la función es decreciente, alcanza su mínimo $m_3$ en $x = \frac{3}{2}$, tenemos: 
+			\begin{eqnarray*}
+				m_3 &=& f\Big(\frac{3}{2} \Big) \\
+				&=& 1 + \frac{7}{2}\Big(\frac{3}{2} \Big) - 2\Big(\frac{3}{2} \Big)^2 \\ 
+				&=& \frac{7}{4} 
+			\end{eqnarray*}
+			% eqn_m3
+			Para el cuarto intervalo donde la función es decreciente, alcanza su mínimo $m_4$ en $x = 2$, tenemos: 
+			\begin{eqnarray*}
+				m_4 &=& f(2) \\
+				&=& 1 + \frac{7}{2}(2) - 2(2)^2 \\ 
+				&=& 1 + 7 - 8 \\
+				&=& 0
+			\end{eqnarray*}
+			% eqn_m4
+			Luego, vamos a construir la suma inferior para estos cuatro intervalos. 
+			\begin{eqnarray*}
+				A(R) \approx \Sigma_{i=1}^4 \mu_i (I_i) * m_i \\ 
+				\approx \frac{1}{2}*(1) + \frac{1}{2}*\Big(\frac{9}{4}\Big) + \frac{1}{2}*\Big(\frac{7}{4}\Big) + \frac{1}{2}*(0) \\ 
+				\approx \frac{5}{2} = 2.5
+			\end{eqnarray*}
+			% eqn_sumaInf
+			Por lo tanto, el valor aproximado para la suma superior con una partición de cuatro intervalos es: $ A(R) = 2.5 $. \\
+			Podemos observar que la suma inferior es menor a la suma superior, como era de esperarse.\\ 
+			Si se refina la partición para obtener más pedazos, es de esperarse que los valores de las sumas infefriores y superiores se aproximen entre sí. 
+			\end{ejer}
+			% end ejer
+		% section sumas_superiores_e_inferiores (end)
+		\section{Sumas de Riemann} % (fold)
+		\label{sec:sumas_de_riemann}
+			\begin{ejer}[2]
+		    Exprese la suma de Riemann para $f(x) = x^2 - 1$ en el intervalo $[0,2]$, dividido en cuatro intervalos de la misma longitud. \\
+		    Primero vamos a ver la forma de la gráfica de la función $f$. 
+		    \begin{figure}[h]
+			    \includegraphics{sumaRieman_n4_x2.png}
+			    \caption{Suma de Riemann de la función $f$ definida en el intervalo cerrado $[a,b] = [0,2]$}
+		    \end{figure}
+		    % fig_f_sumInf
+		    De la figura podemos observar que, dado que la función es creciente en el intervalo, entonces el mínimo  de la función siempre se encuentra evaluando el extremo izquierdo del intervalo bajo la función, mientras que, el máximo se encuetra evaluando el extremo derecho del intervalo bajo la función. \\
+		    Suponiendo que tuvieramos una partición de $n$ partes, el sub-intervalo k-ésimo es  de la forma: $I_k = [t_{k-1}, t_k]$ posee una longitud: $|\Delta t| = |t_k - t_{k-1}|$. Donde: $t_k = \frac{k(b-a)}{n}$ y $t_{k-1} = \frac{(k-1)(b-a)}{n}$, con $k > 0$. \\ 
+		    Entonces: 
+		    \begin{equation}
+		        |\Delta t| = \Big|\frac{k(b-a)}{n} - \frac{(k-1)(b-a)}{n}\Big| = \Big|\frac{(b-a)}{n}\Big|
+		    \end{equation}
+		    Para nuestro ejemplo tenemos que $|\Delta t| = \frac{2}{4} = 0.5$, entonces, vamos a construir la suma de Riemann tomando altura de nuestros rectángulos el valor de la función evaluada en el punto medio de cada sub-intervalo $I_k$. Cada punto medio será de la forma: $c_k = \frac{t_{k-1} + t_k}{2} = \frac{(2k - 1)(b-a)}{2n}$ \\
+		    Vamos a encontrar primero los puntos medios $c_k$ de cada sub-intervalo:
+		    \begin{eqnarray*}
+		        c_1 = \frac{(2(1) - 1)(2-0)}{2(4)} = \frac{1}{4} \\ 
+		        c_2 = \frac{(2(2) - 1)(2-0)}{2(4)} = \frac{3}{4} \\ 
+		        c_3 = \frac{(2(3) - 1)(2-0)}{2(4)} = \frac{5}{4}\\ 
+		        c_4 = \frac{(2(4) - 1)(2-0)}{2(4)} = \frac{7}{4}
+		    \end{eqnarray*}
+		    Luego, evaluamos la función $f$ en cada uno de estos puntos:
+		    \begin{eqnarray}
+		        \xi_1 = f(c_1) = \Big(\frac{1}{4}\Big)² -1 = -\frac{15}{16} \\
+		        \xi_2 = f(c_2) = \Big(\frac{3}{4}\Big)² -1 = -\frac{7}{16} \\
+		        \xi_3 = f(c_3) = \Big(\frac{5}{4}\Big)² -1 = \frac{9}{16} \\
+		        \xi_4 = f(c_4) = \Big(\frac{7}{4}\Big)² -1 = \frac{33}{16}
+		    \end{eqnarray}
+		    % end eqn alturas_rect
+		    Ahora vamos a construir las sumas de Riemann: 
+		    \begin{eqnarray*}
+			    S(R) \approx \Sigma_{i=1}^4 \mu_i (I_i) * \xi_i \\ 
+			    \approx \frac{1}{2}*\Big(-\frac{15}{16}\Big) + \frac{1}{2}*\Big(-\frac{7}{16} \Big) + \frac{1}{2}*\Big(\frac{9}{16} \Big) + \frac{1}{2}*\Big(\frac{33}{16} \Big) \\ 
+			    &=& \frac{1}{2}\Big[\frac{-15-7}{16} + \frac{9+33}{16} \Big]\\ 
+			    &=& \frac{1}{2}\Big[\frac{-22}{16} + \frac{42}{16} \Big]\\ 
+			    &=& \frac{1}{2}\Big[\frac{20}{16} \Big] \\ 
+			    &=& \frac{5}{8} = 0.625
+		    \end{eqnarray*}
+		    % eqn_sumaInf
+		    El alumno puede demostrar que para esta partición el valor de la suma de Riemann que hemos encontrado se encuentra entre el correspondiente valor de las suma inferior y superior. 
+			\end{ejer}
+			% end ejer2
+			\begin{ejer}[3]
+			    (a) Encuentre las sumas inferiores, superiores y de Riemann para la función $f(x) = sen(x) + 1$, en el intervalo $I = [-\pi, \pi]$, para una partición de 4 intervalos. (b) Ordene las sumas de menor a mayor y verifique que: $S_{inf} \leq S_R \leq S_{sup}$. \\
+			    Veamos la forma de la gráfica de la función $f$, podemos observar que tiene un mínimo global en el intervalo $I$ en $x = \frac{-\pi}{2}$ y un máximo global en el intervalo $I$ en $x = \frac{\pi}{2}$. 
+			    \begin{figure}[h]
+				    \includegraphics[scale=0.5]{sumasRiemann_Fsin.png}
+				    \caption{Gráfica de la función $f$ definida en el intervalo cerrado $I = [A,B] = [-\pi,\pi]$}
+			    \end{figure}
+			    % fig graf_f
+			    Claramente la longitud de cada sub-intervalo de la partición es: $\Delta x = \frac{|B-A|}{4} = \frac{\pi - (-\pi)}{4} = \frac{\pi}{2}$. \\ 
+			    Pimero calculamos la suma inferior, por lo que vamos a considerar el ínfimo de la función en cada sub-intervalo. Claramente del lado izquierdo del eje X, el ínfimo de los dos sub-intervalos es el mínimo global de la función que es: $c_1 = c_2 = f(-\pi/2) = 0$. Mientras que del lado derecho del eje X los ínfimos son respectivamente $c_3 = f(0) = 1$ y $c_4 = f(\pi) = 1$.  \\
+			    \begin{figure}[h]
+				    \includegraphics[scale=0.5]{sumasInf_Fsin.png}
+				    \caption{Gráfica de las sumas inferiores de la función $f$ definida en el intervalo cerrado $I = [A,B] = [-\pi,\pi]$}
+			    \end{figure}
+			    % fig graf_f
+			    Entonces la suma inferior queda como: \\
+			    \begin{eqnarray*}
+			        S_i \approx \Sigma_{i=1}^4 f(c_i) * \Delta x \\
+			        \approx \frac{\pi}{2} [0 + 0 + 1 + 1] = \pi 
+			    \end{eqnarray*}
+			    Luego calculamos la suma superior, para lo cual observamos que si la función es creciente en el segundo y tercero intervalos y decreciente en el primero y cuarto intervalos. \\ \\ Entonces, los supremos de la función en los  intervalos decrecientes son $c_1 = f(-\pi) = 1$ y $c_4 = f(\frac{\pi}{2}) = 2 $, mientras que los supremos en los intervalos crecientes son $c_2 = f(0) = 1 $ y $c_3 = f(\frac{\pi}{2}) = 2 $.\\
+			    \begin{figure}[h]
+				    \includegraphics[scale=0.5]{sumasSup_Fsin.png}
+				    \caption{Gráfica de las sumas superiores de la función $f$ definida en el intervalo cerrado $I = [A,B] = [-\pi,\pi]$}
+			    \end{figure}
+			    % fig graf_f
+			    Finalmente calculamos la suma de Riemann, que nos queda de la siguiente manera: 
+			    \begin{eqnarray*}
+			        S_s \approx \Sigma_{i=1}^4 f(c_i) * \Delta x \\
+			        \approx \frac{\pi}{2} [1 + 1 + 2 + 2] = 3 \pi 
+			    \end{eqnarray*}
+			    % end eqna sumaSup
+			    \begin{figure}[h]
+				    \includegraphics[scale=0.5]{sumasRiemannShow_Fsin.png}
+				    \caption{Gráfica de las sumas de Riemann de la función $f$ definida en el intervalo cerrado $I = [A,B] = [-\pi,\pi]$}
+			    \end{figure}
+			    % fig graf_f
+			\end{ejer}
+			% end ejer3
+		% section sumas_de_riemann (end)
+		\section{Límite de sumas finitas} % (fold)
+		\label{sec:límite_de_sumas_finitas}
+			Sea $M$ el límite de las sumas de Riemann de una función continua $f$ definida en un intervalo cerrado $[a,b]$. 
+			\begin{equation*}
+				\lim_{n \rightarrow	\infty} \Sigma_{k = 1}^{n} f(\xi_k) \Delta x = M 
+			\end{equation*}
+			Donde: $\Delta x = |x_{k+1} - x_{k}|$, para $k = 1, ..., n$ y $\xi_k = \frac{x_k - x_{k+1}}{2}$; el valor intermedio del $k-esimo$ intervalo. 
+			Cuando dicho límite existe se dice que $M$ es igual a la integral de la función $f$ en el intervalo $[a,b]$. 
+			\begin{equation}
+				M = \int_a^b f(x) dx
+			\end{equation}
+		    \begin{ejer}[1]
+			Calcular el límite de las sumas finitas del área de la región $R$, que está debajo de la gráfica de $y = 1 - x^2$ en el intervalo $[0,1]$. (a) Usando sumas superiores, (b) Usando sumas inferiores. 
+			Tomaremos la partición homogénea $P = \lbrace 0 = x_0, x_1, x_2, ..., x_k, ,..., x_n =1 \rbrace$. El contenido de cada subintervalo es $\mu(I_k) = \Delta x = x_{k+1} - x_{k} = \frac{1}{n}$. \\ 
+			Dado que la función es decreciente en el intervalo, para evaluar las sumas inferiores debemos tomar el valor ínfimo de la función en cada sub-intervalo, que corresponde justamente al extremo derecho de cada sub-intervalo $[x_{k-1}, x_{k}]$.\\
+			Entonces, evaluando la suma inferior tenemos: 
+		    \begin{eqnarray*}
+		        \Sigma_{k = 1}^{n} f(\xi_k) \Delta x &=& \Sigma_{k = 1}^{n} f(x_k) \frac{1}{n} \\
+		        &=& \Sigma_{k = 1}^{n} \B(1-x_k^2\B) \frac{1}{n} \\
+		        &=& \Sigma_{k = 1}^{n} \B(1-x_k^2\B) \frac{1}{n} \\
+		        &=& \Sigma_{k = 1}^{n} \B[1 - \B(\frac{k-1}{n}\B)^2\B] \frac{1}{n}
+		    \end{eqnarray*}
+			\end{ejer}
+		% section límite_de_sumas_finitas (end)
+		\section{Propiedades de la integral definida} % (fold)
+		\label{sec:propiedades_de_la_integral_definida}
+			
+		% section propiedades_de_la_integral_definida (end)
+		\section{Teorema del Valor Medio para la Integral} % (fold)
+		\label{sec:teorema_del_valor_medio_para_la_integral}
+			
+		% section teorema_del_valor_medio_para_la_integral (end)
+	% chapter sumas_de_riemann (end)
+	\chapter{Criterios de Integrabilidad} % (fold)
+	\label{cha:criterios_de_integrabilidad}
+		\section{Discotinuidades Finitas} % (fold)
+		\label{sec:discotinuidades_finitas}
+			
+		% section discotinuidades_finitas (end)
+		\section{Discontinuidades Infinitas} % (fold)
+		\label{sec:discontinuidades_infinitas}
+			
+		% section discontinuidades_infinitas (end)
+		\section{La Función de Riemann} % (fold)
+		\label{sec:la_función_de_riemann}
+			
+		% section la_función_de_riemann (end)
+	% chapter criterios_de_integrabilidad (end)
+% part integral_ _definida_ (end)
+\part{Teorema Fundamental del Cálculo} % (fold)
+\label{prt:teorema_ _fundamental_ _del_ _cálculo_}
+	\chapter{La Integral como Función del Límite Superior} % (fold)
+	\label{cha:la_integral_como_función_del_límite_superior}
+		\section{Propiedades de la Integral Indefinida} % (fold)
+		\label{sec:propiedades_de_la_integral_indefinida}
+			
+		% section propiedades_de_la_integral_indefinida (end)
+	% chapter la_integral_como_función_del_límite_superior (end)
+	\chapter{Teoremas Fundamentales del Cálculo} % (fold)
+	\label{cha:teoremas_fundamentales_del_cálculo}
+		\section{Demostraciones de los TFC} % (fold)
+		\label{sec:demostraciones_de_los_tfc}
+			
+		% section demostraciones_de_los_tfc (end)
+		\section{Ejemplos de Integración Directa} % (fold)
+		\label{sec:ejemplos_de_integración_directa}
+			
+		% section ejemplos_de_integración_directa (end)
+		\section{La Integral Impropia} % (fold)
+		\label{sec:la_integral_impropia}
+			
+		% section la_integral_impropia (end)
+	% chapter teoremas_fundamentales_del_cálculo (end)
+	\chapter{Funciones Definidas Mediante la Integral} % (fold)
+	\label{cha:funciones_definidas_mediante_la_integral}
+		\section{Función Logaritmo} % (fold)
+		\label{sec:funcion_logaritmo}
+			
+		% section funcion_logaritmo (end)
+		\section{Función Exponencial} % (fold)
+		\label{sec:función_exponencial}
+			
+		% section función_exponencial (end)
+		\section{Funciones Trigonométricas} % (fold)
+		\label{sec:funciones_trigonométricas}
+		
+		% section funciones_trigonométricas (end)
+	% chapter funciones_definidas_mediante_la_integral (end)
+% part teorema_ _fundamental_ _del_ _cálculo_ (end)
+\part{Métodos de Integración} % (fold)
+\label{prt:métodos_ _de_ _integración_}
+	\chapter{Métodos Elementales} % (fold)
+	\label{cha:métodos_elementales}
+		\section{Método de Sustitución} % (fold)
+		\label{sec:método_de_sustitución}
+			
+		% section método_de_sustitución (end)
+		\section{Integración por Partes} % (fold)
+		\label{sec:integración_por_partes}
+			
+		% section integración_por_partes (end)
+		\section{TVM Integral} % (fold)
+		\label{sec:tvm_integral}
+			
+		% section tvm_integral (end)
+		\section{Polinomio de Taylor} % (fold)
+		\label{sec:polinomio_de_taylor}
+			
+		% section polinomio_de_taylor (end)
+	% chapter métodos_elementales (end)
+	\chapter{Métodos de Integración: segunda parte} % (fold)
+	\label{cha:métodos_de_integración_segunda_parte}
+		\section{Fracciones Parciales} % (fold)
+		\label{sec:fracciones_parciales}
+			
+		% section fracciones_parciales (end)
+		\section{Métodos Numéricos} % (fold)
+		\label{sec:métodos_numéricos}
+			
+		% section métodos_numéricos (end)
+	% chapter métodos_de_integración_segunda_parte (end)
+% part métodos_ _de_ _integración_ (end)
+\part{Aplicaciones de la Integral} % (fold)
+\label{prt:aplicaciones_ _de_ _la_ _integral_}
+	\chapter{Área y Volumen} % (fold)
+	\label{cha:área_y_volumen}
+		\section{Área de una Región Plana} % (fold)
+		\label{sec:área_de_una_región_plana}
+			
+		% section área_de_una_región_plana (end)
+		\section{Área en Coordenadas Polares} % (fold)
+		\label{sec:área_en_coordenadas_polares}
+			
+		% section área_en_coordenadas_polares (end)
+		\section{Longitud de una Curva} % (fold)
+		\label{sec:longitud_de_una_curva}
+			
+		% section longitud_de_una_curva (end)
+		\section{Distancia Recorrida por una Partícula} % (fold)
+		\label{sec:distancia_recorrida_por_una_partícula}
+			
+		% section distancia_recorrida_por_una_partícula (end)
+		\section{Volumen y Área de un Sólido de Revolución} % (fold)
+		\label{sec:volumen_y_área_de_un_sólido_de_revolución}
+			
+		% section volumen_y_área_de_un_sólido_de_revolución (end)
+		\section{Trabajo, Densidad y Masa} % (fold)
+		\label{sec:trabajo_densidad_y_masa}
+			
+		% section trabajo_densidad_y_masa (end)
+		\section{Momentos de Inercia} % (fold)
+		\label{sec:momentos_de_inercia}
+			
+		% section momentos_de_inercia (end)
+	% chapter área_y_volumen (end)
+	\chapter{Ecuaciones Diferenciales} % (fold)
+	\label{cha:ecuaciones_diferenciales}
+		\section{Ecuaciones Diferenciales Ordinarias} % (fold)
+		\label{sec:ecuaciones_diferenciales_ordinarias}
+			
+		% section ecuaciones_diferenciales_ordinarias (end)
+	% chapter ecuaciones_diferenciales (end)
+% part aplicaciones_ _de_ _la_ _integral_ (end)
